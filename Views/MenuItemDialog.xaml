@@ -1,0 +1,76 @@
+<Window x:Class="MenuOrder.Views.MenuItemDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Редактирование позиции меню"
+        Height="500" Width="400"
+        WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="16">
+        <TextBlock Text="Тип:" Margin="0,0,0,8"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+            <RadioButton x:Name="DishRadioButton" 
+                        Content="Блюдо" 
+                        Margin="0,0,16,0"
+                        Checked="TypeRadioButton_Checked"/>
+            <RadioButton x:Name="BeverageRadioButton" 
+                        Content="Напиток"
+                        Checked="TypeRadioButton_Checked"/>
+        </StackPanel>
+
+        <TextBlock Text="Название:" Margin="0,0,0,8"/>
+        <TextBox x:Name="NameTextBox" Margin="0,0,0,16"
+                 materialDesign:HintAssist.Hint="Название"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+        <TextBlock Text="Описание:" Margin="0,0,0,8"/>
+        <TextBox x:Name="DescriptionTextBox" Margin="0,0,0,16"
+                 materialDesign:HintAssist.Hint="Описание"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 Height="80"/>
+
+        <TextBlock Text="Цена:" Margin="0,0,0,8"/>
+        <TextBox x:Name="PriceTextBox" Margin="0,0,0,16"
+                 materialDesign:HintAssist.Hint="Цена"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+        <TextBlock Text="Категория:" Margin="0,0,0,8"/>
+        <TextBox x:Name="CategoryTextBox" Margin="0,0,0,16"
+                 materialDesign:HintAssist.Hint="Категория"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+
+        <!-- Панель для блюд -->
+        <StackPanel x:Name="DishPanel">
+            <TextBlock Text="Время приготовления (мин):" Margin="0,0,0,8"/>
+            <TextBox x:Name="CookingTimeTextBox" Margin="0,0,0,16"
+                     materialDesign:HintAssist.Hint="Время приготовления (мин)"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+        </StackPanel>
+
+        <!-- Панель для напитков -->
+        <StackPanel x:Name="BeveragePanel">
+            <TextBlock Text="Объем (мл):" Margin="0,0,0,8"/>
+            <TextBox x:Name="VolumeTextBox" Margin="0,0,0,16"
+                     materialDesign:HintAssist.Hint="Объем (мл)"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"/>
+            <CheckBox x:Name="IsAlcoholicCheckBox" 
+                     Content="Алкогольный напиток"
+                     Margin="0,0,0,16"/>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Content="Сохранить"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Margin="0,0,8,0"
+                    Click="SaveButton_Click"/>
+            <Button Content="Отмена"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    Margin="0,0,0,0"
+                    Click="CancelButton_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
